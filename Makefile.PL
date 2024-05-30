@@ -24,6 +24,7 @@ requires 'Mo::utils::Language' => 0.05;
 requires 'Readonly' => 0;
 requires 'Scalar::Util' => 0;
 requires 'Tags::HTML' => 0.06;
+requires 'Unicode::UTF8' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Tags-HTML-Footer/issues';
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Tags-HTML-Footer';
 resources 'repository' => 'git://github.com/michal-josef-spacek/Tags-HTML-Footer';

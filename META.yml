@@ -33,6 +33,7 @@ requires:
   Readonly: 0
   Scalar::Util: 0
   Tags::HTML: 0.06
+  Unicode::UTF8: 0
   perl: 5.8.0
 resources:
   bugtracker: https://github.com/michal-josef-spacek/Tags-HTML-Footer/issues

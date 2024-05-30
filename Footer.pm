@@ -9,6 +9,7 @@ use Error::Pure qw(err);
 use Mo::utils::Language 0.05 qw(check_language_639_2);
 use Readonly;
 use Scalar::Util qw(blessed);
+use Unicode::UTF8 qw(decode_utf8);
 
 Readonly::Array our @TEXT_KEYS => qw(version);
 
