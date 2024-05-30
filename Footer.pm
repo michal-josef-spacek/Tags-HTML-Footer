@@ -78,7 +78,7 @@ sub _init {
 		|| ! blessed($footer)
 		|| ! $footer->isa('Data::HTML::Footer')) {
 
-		err "Input object must be a 'Data::HTML::Footer' instance.";
+		err "Footer object must be a 'Data::HTML::Footer' instance.";
 	}
 
 	$self->{'_footer'} = $footer;
