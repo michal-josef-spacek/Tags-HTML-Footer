@@ -29,6 +29,7 @@ resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Tags-HTML-Foot
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Tags-HTML-Footer';
 resources 'repository' => 'git://github.com/michal-josef-spacek/Tags-HTML-Footer';
 test_requires 'CSS::Struct::Output::Structure' => 0;
+test_requires 'Data::HTML::Footer' => 0;
 test_requires 'English' => 0;
 test_requires 'Error::Pure::Utils' => 0;
 test_requires 'Tags::Output::Structure' => 0;

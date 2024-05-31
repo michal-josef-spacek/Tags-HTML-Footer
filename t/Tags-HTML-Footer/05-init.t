@@ -11,8 +11,8 @@ use Test::NoWarnings;
 
 # Test.
 my $obj = Tags::HTML::Footer->new;
-my $anchor = Data::HTML::Footer->new;
-my $ret = $obj->init($anchor);
+my $footer = Data::HTML::Footer->new;
+my $ret = $obj->init($footer);
 is($ret, undef, 'Init returns undef.');
 
 # Test.
