@@ -99,7 +99,7 @@ sub _process {
 		['b', 'footer'],
 
 		defined $self->{'_footer'}->version ? (
-			['b', 'div'],
+			['b', 'span'],
 			['a', 'class', 'version'],
 			defined $self->{'_footer'}->version_url ? (
 				['b', 'a'],
@@ -109,7 +109,7 @@ sub _process {
 			defined $self->{'_footer'}->version_url ? (
 				['e', 'a'],
 			) : (),
-			['e', 'div'],
+			['e', 'span'],
 		) : (),
 
 		defined $self->{'_footer'}->copyright_years ? (
@@ -119,7 +119,7 @@ sub _process {
 		) : (),
 
 		defined $self->{'_footer'}->author ? (
-			['b', 'div'],
+			['b', 'span'],
 			['a', 'class', 'author'],
 			defined $self->{'_footer'}->author_url ? (
 				['b', 'a'],
@@ -129,7 +129,7 @@ sub _process {
 			defined $self->{'_footer'}->author_url ? (
 				['e', 'a'],
 			) : (),
-			['e', 'div'],
+			['e', 'span'],
 		) : (),
 
 		['e', 'footer'],
