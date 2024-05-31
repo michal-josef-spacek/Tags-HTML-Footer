@@ -99,26 +99,37 @@ sub _process {
 		['b', 'footer'],
 
 		defined $self->{'_footer'}->version ? (
-			['b', 'a'],
+			['b', 'div'],
+			['a', 'class', 'version'],
 			defined $self->{'_footer'}->version_url ? (
+				['b', 'a'],
 				['a', 'href', $self->{'_footer'}->version_url],
 			) : (),
 			['d', $self->_text('version').': '.$self->{'_footer'}->version],
-			['e', 'a'],
+			defined $self->{'_footer'}->version_url ? (
+				['e', 'a'],
+			) : (),
+			['e', 'div'],
 		) : (),
 
 		defined $self->{'_footer'}->copyright_years ? (
 			defined $self->{'_footer'}->version ? ['d', ',&nbsp;'] : (),
-			['d', decode_utf8('©').' '.$self->{'_footer'}->copyright_years.' '],
+			['d', decode_utf8('©').' '.$self->{'_footer'}->copyright_years],
+			defined $self->{'_footer'}->author ? ['d', ' '] : (),
 		) : (),
 
 		defined $self->{'_footer'}->author ? (
-			['b', 'a'],
+			['b', 'div'],
+			['a', 'class', 'author'],
 			defined $self->{'_footer'}->author_url ? (
+				['b', 'a'],
 				['a', 'href', $self->{'_footer'}->author_url],
 			) : (),
 			['d', $self->{'_footer'}->author],
-			['e', 'a'],
+			defined $self->{'_footer'}->author_url ? (
+				['e', 'a'],
+			) : (),
+			['e', 'div'],
 		) : (),
 
 		['e', 'footer'],
