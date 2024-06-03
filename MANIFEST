@@ -1,5 +1,6 @@
 Changes
 CONCEPT
+examples/create_and_print_footer.pl
 Footer.pm
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm

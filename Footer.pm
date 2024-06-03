@@ -177,3 +177,249 @@ sub _text {
 }
 
 1;
+
+__END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+Tags::HTML::Footer - Tags helper for HTML footer.
+
+=head1 SYNOPSIS
+
+ use Tags::HTML::Footer;
+
+ my $obj = Tags::HTML::Footer->new(%params);
+ $obj->cleanup;
+ $obj->init($footer);
+ $obj->prepare;
+ $obj->process;
+ $obj->process_css;
+
+=head1 METHODS
+
+=head2 C<new>
+
+ my $obj = Tags::HTML::Footer->new(%params);
+
+Constructor.
+
+=over 8
+
+=item * C<css>
+
+L<CSS::Struct::Output> object for L<process_css> processing.
+
+Default value is undef.
+
+=item * C<lang>
+
+Language in ISO 639-2 code.
+
+Default value is 'eng'.
+
+=item * C<tags>
+
+L<Tags::Output> object.
+
+Default value is undef.
+
+=item * C<text>
+
+Hash reference with keys defined language in ISO 639-2 code and value with hash
+reference with texts.
+
+Required key is 'version' only.
+
+Default value is:
+
+ {
+ 	'eng' => {
+ 		'version' => 'Version',
+ 	},
+ }
+
+=back
+
+=head2 C<cleanup>
+
+ $obj->cleanup;
+
+Process cleanup after page run.
+
+In this case cleanup internal representation of a set by L<init>.
+
+Returns undef.
+
+=head2 C<init>
+
+ $obj->init($footer);
+
+Process initialization in page run.
+
+Accepted C<$footer> is L<Data::HTML::Footer>.
+
+Returns undef.
+
+=head2 C<prepare>
+
+ $obj->prepare;
+
+Process initialization before page run.
+
+Do nothing in this object.
+
+Returns undef.
+
+=head2 C<process>
+
+ $obj->process;
+
+Process L<Tags> structure for HTML a element to output.
+
+Do nothing in case without inicialization by L<init>.
+
+Returns undef.
+
+=head2 C<process_css>
+
+ $obj->process_css;
+
+Process L<CSS::Struct> structure for HTML a element to output.
+
+Do nothing in case without inicialization by L<init>.
+
+Returns undef.
+
+=head1 ERRORS
+
+ new():
+         From Tags::HTML::new():
+                 Parameter 'css' must be a 'CSS::Struct::Output::*' class.
+                 Parameter 'tags' must be a 'Tags::Output::*' class.
+
+ init():
+         Footer object must be a 'Data::HTML::Footer' instance.
+
+ process():
+         From Tags::HTML::process():
+                 Parameter 'tags' isn't defined.
+
+ process_css():
+         From Tags::HTML::process_css():
+                 Parameter 'css' isn't defined.
+
+=head1 EXAMPLE
+
+=for comment filename=create_and_print_footer.pl
+
+ use strict;
+ use warnings;
+
+ use CSS::Struct::Output::Indent;
+ use Data::HTML::Footer;
+ use Tags::HTML::Footer;
+ use Tags::Output::Indent;
+ use Unicode::UTF8 qw(encode_utf8);
+
+ # Object.
+ my $css = CSS::Struct::Output::Indent->new;
+ my $tags = Tags::Output::Indent->new(
+         'xml' => 1,
+ );
+ my $obj = Tags::HTML::Footer->new(
+         'css' => $css,
+         'tags' => $tags,
+ );
+
+ # Data object for footer.
+ my $footer = Data::HTML::Footer->new(
+         'author' => 'John',
+         'author_url' => 'https://example.com',
+         'copyright_years' => '2022-2024',
+         'height' => '40px',
+         'version' => '0.07',
+         'version_url' => '/changes',
+ );
+
+ # Initialize.
+ $obj->init($footer);
+
+ # Process a.
+ $obj->process;
+ $obj->process_css;
+
+ # Print out.
+ print "HTML:\n";
+ print encode_utf8($tags->flush);
+ print "\n\n";
+ print "CSS:\n";
+ print $css->flush;
+
+ # Output:
+ # HTML:
+ # <footer>
+ #   <span class="version">
+ #     <a href="/changes">
+ #       Version: 0.07
+ #     </a>
+ #   </span>
+ #   ,&nbsp;
+ #   © 2022-2024
+ # 
+ #   <span class="author">
+ #     <a href="https://example.com">
+ #       John
+ #     </a>
+ #   </span>
+ # </footer>
+ # 
+ # CSS:
+ # #main {
+ #         padding-bottom: 40px;
+ # }
+ # footer {
+ #         text-align: center;
+ #         padding: 10px 0;
+ #         background-color: #f3f3f3;
+ #         color: #333;
+ #         position: fixed;
+ #         bottom: 0;
+ #         width: 100%;
+ #         height: 40px;
+ # }
+
+=head1 DEPENDENCIES
+
+L<Class::Utils>,
+L<Error::Pure>,
+L<Mo::utils::Language>,
+L<Readonly>,
+L<Scalar::Util>,
+L<Tags::HTML>,
+L<Unicode::UTF8>.
+
+=head1 REPOSITORY
+
+L<https://github.com/michal-josef-spacek/Tags-HTML-Footer>
+
+=head1 AUTHOR
+
+Michal Josef Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+© 2024 Michal Josef Špaček
+
+BSD 2-Clause License
+
+=head1 VERSION
+
+0.01
+
+=cut
