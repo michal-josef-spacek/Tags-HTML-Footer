@@ -12,6 +12,7 @@ use Scalar::Util qw(blessed);
 use Unicode::UTF8 qw(decode_utf8);
 
 Readonly::Array our @TEXT_KEYS => qw(version);
+Readonly::Scalar our $DEFAULT_HEIGHT => '40px';
 
 our $VERSION = 0.01;
 
@@ -145,9 +146,13 @@ sub _process_css {
 		return;
 	}
 
+	my $height = $self->{'_footer'}->height;
+	if (! defined $height) {
+		$height = $DEFAULT_HEIGHT;
+	}
 	$self->{'css'}->put(
 		['s', '#main'],
-		['d', 'padding-bottom', $self->{'_footer'}->height],
+		['d', 'padding-bottom', $height],
 		['e'],
 
 		['s', 'footer'],
@@ -158,7 +163,7 @@ sub _process_css {
 		['d', 'position', 'fixed'],
 		['d', 'bottom', 0],
 		['d', 'width', '100%'],
-		['d', 'height', $self->{'_footer'}->height],
+		['d', 'height', $height],
 		['e'],
 	);
 
