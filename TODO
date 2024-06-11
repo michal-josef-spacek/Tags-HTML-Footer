@@ -1,7 +1,6 @@
 TODO
 ====
 3. Add DESCRIPTION section to doc.
-4. Add plack app to doc.
 5.
 
 Applied
@@ -11,3 +10,6 @@ OK [20240603] skim
 
 1. Doc
 OK [20240603] skim
+
+4. Add plack app to doc.
+OK [20240612] skim
