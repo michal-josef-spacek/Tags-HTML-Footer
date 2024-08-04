@@ -164,6 +164,7 @@ sub _process_css {
 		['d', 'bottom', 0],
 		['d', 'width', '100%'],
 		['d', 'height', $height],
+		['d', 'font-family', 'Arial, Helvetica, sans-serif'],
 		['e'],
 	);
 
