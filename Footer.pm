@@ -387,6 +387,7 @@ Returns undef.
  #         bottom: 0;
  #         width: 100%;
  #         height: 40px;
+ #         font-family: Arial, Helvetica, sans-serif;
  # }
 
 =head1 EXAMPLE2

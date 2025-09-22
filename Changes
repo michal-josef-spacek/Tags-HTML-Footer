@@ -1,4 +1,5 @@
 0.04
+ - Fix output of EXAMPLE1 in doc.
  - Regen README file.
  - Simplify constructor checks.
  - Update copyright years.
