@@ -6,12 +6,12 @@ use warnings;
 
 use Class::Utils qw(set_params split_params);
 use Error::Pure qw(err);
+use Mo::utils::Hash 0.02 qw(check_hash check_hash_keys);
 use Mo::utils::Language 0.05 qw(check_language_639_2);
 use Readonly;
 use Scalar::Util qw(blessed);
 use Unicode::UTF8 qw(decode_utf8);
 
-Readonly::Array our @TEXT_KEYS => qw(version);
 Readonly::Scalar our $DEFAULT_HEIGHT => '40px';
 
 our $VERSION = 0.04;
@@ -42,23 +42,8 @@ sub new {
 	check_language_639_2($self, 'lang');
 
 	# Check text.
-	if (! defined $self->{'text'}) {
-		err "Parameter 'text' is required.";
-	}
-	if (ref $self->{'text'} ne 'HASH') {
-		err "Parameter 'text' must be a hash with language texts.";
-	}
-	if (! exists $self->{'text'}->{$self->{'lang'}}) {
-		err "Texts for language '$self->{'lang'}' doesn't exist.";
-	}
-	if (@TEXT_KEYS != keys %{$self->{'text'}->{$self->{'lang'}}}) {
-		err "Number of texts isn't same as expected.";
-	}
-	foreach my $req_text_key (@TEXT_KEYS) {
-		if (! exists $self->{'text'}->{$self->{'lang'}}->{$req_text_key}) {
-			err "Text for lang '$self->{'lang'}' and key '$req_text_key' doesn't exist.";
-		}
-	}
+	check_hash($self, 'text');
+	check_hash_keys($self, 'text', $self->{'lang'}, 'version');
 
 	# Object.
 	return $self;
@@ -298,6 +283,17 @@ Returns undef.
 =head1 ERRORS
 
  new():
+         From Mo::utils::Hash::check_hash():
+                 Parameter '%s' isn't hash reference.
+                         Reference: %s
+         From Mo::utils::Hash::check_hash_keys():
+                 Expected keys doesn't exists.
+                 Parameter '%s' doesn't contain expected keys.
+                         Keys: %s
+         From Mo::utils::Language::check_language_639_2():
+                 Parameter '%s' doesn't contain valid ISO 639-2 code.
+                         Codeset: %s
+                         Value: %s
          From Tags::HTML::new():
                  Parameter 'css' must be a 'CSS::Struct::Output::*' class.
                  Parameter 'tags' must be a 'Tags::Output::*' class.
@@ -516,6 +512,7 @@ Returns undef.
 
 L<Class::Utils>,
 L<Error::Pure>,
+L<Mo::utils::Hash>,
 L<Mo::utils::Language>,
 L<Readonly>,
 L<Scalar::Util>,

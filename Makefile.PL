@@ -20,6 +20,7 @@ readme_from 'Footer.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0;
 requires 'Error::Pure' => 0;
+requires 'Mo::utils::Hash' => 0.02;
 requires 'Mo::utils::Language' => 0.05;
 requires 'Readonly' => 0;
 requires 'Scalar::Util' => 0;

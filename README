@@ -97,6 +97,17 @@ METHODS
 
 ERRORS
      new():
+             From Mo::utils::Hash::check_hash():
+                     Parameter '%s' isn't hash reference.
+                             Reference: %s
+             From Mo::utils::Hash::check_hash_keys():
+                     Expected keys doesn't exists.
+                     Parameter '%s' doesn't contain expected keys.
+                             Keys: %s
+             From Mo::utils::Language::check_language_639_2():
+                     Parameter '%s' doesn't contain valid ISO 639-2 code.
+                             Codeset: %s
+                             Value: %s
              From Tags::HTML::new():
                      Parameter 'css' must be a 'CSS::Struct::Output::*' class.
                      Parameter 'tags' must be a 'Tags::Output::*' class.
@@ -298,8 +309,8 @@ EXAMPLE2
      # Output screenshot is in images/ directory.
 
 DEPENDENCIES
-    Class::Utils, Error::Pure, Mo::utils::Language, Readonly, Scalar::Util,
-    Tags::HTML, Unicode::UTF8.
+    Class::Utils, Error::Pure, Mo::utils::Hash, Mo::utils::Language,
+    Readonly, Scalar::Util, Tags::HTML, Unicode::UTF8.
 
 REPOSITORY
     <https://github.com/michal-josef-spacek/Tags-HTML-Footer>
