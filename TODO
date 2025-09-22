@@ -2,7 +2,8 @@ TODO
 ====
 3. Add DESCRIPTION section to doc.
 5. Regen image after change of font-family.
-6.
+6. Output with blank line isn't fine, sure?
+7.
 
 Applied
 =======
