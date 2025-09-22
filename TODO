@@ -1,7 +1,6 @@
 TODO
 ====
 3. Add DESCRIPTION section to doc.
-5. Regen image after change of font-family.
 6. Output with blank line isn't fine, sure?
 7.
 
@@ -15,3 +14,6 @@ OK [20240603] skim
 
 4. Add plack app to doc.
 OK [20240612] skim
+
+5. Regen image after change of font-family.
+OK [20250922] skim

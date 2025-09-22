@@ -1,6 +1,7 @@
 0.04
  - Fix output of EXAMPLE1 in doc.
  - Regen README file.
+ - Regen image of EXAMPLE2 in doc.
  - Simplify constructor checks.
  - Update copyright years.
 
