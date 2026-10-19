@@ -1,7 +1,7 @@
 ---
 abstract: 'Tags helper for HTML footer.'
 author:
-  - 'Michal Josef Spacek <skim@cpan.org>'
+  - 'Michal Josef Spacek <michal.josef.spacek@gmail.com>'
 build_requires:
   CSS::Struct::Output::Structure: 0
   Data::HTML::Footer: 0

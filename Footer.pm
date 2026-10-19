@@ -530,7 +530,7 @@ L<https://github.com/michal-josef-spacek/Tags-HTML-Footer>
 
 =head1 AUTHOR
 
-Michal Josef Špaček L<mailto:skim@cpan.org>
+Michal Josef Špaček L<mailto:michal.josef.spacek@gmail.com>
 
 L<http://skim.cz>
 

@@ -6,7 +6,7 @@ use inc::Module::Install;
 
 # Definition.
 abstract 'Tags helper for HTML footer.';
-author 'Michal Josef Spacek <skim@cpan.org>';
+author 'Michal Josef Spacek <michal.josef.spacek@gmail.com>';
 author_requires 'English' => 0;
 author_requires 'File::Object' => 0;
 author_requires 'Test::More' => 0;
