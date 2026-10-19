@@ -96,10 +96,14 @@ sub _process {
 				['e', 'a'],
 			) : (),
 			['e', 'span'],
+
+			($self->{'_footer'}->copyright_years || $self->{'_footer'}->author)
+				? ['d', ',&nbsp;']
+				: (),
 		) : (),
 
+
 		defined $self->{'_footer'}->copyright_years ? (
-			defined $self->{'_footer'}->version ? ['d', ',&nbsp;'] : (),
 			['d', decode_utf8('©').' '.$self->{'_footer'}->copyright_years],
 			defined $self->{'_footer'}->author ? ['d', ' '] : (),
 		) : (),
